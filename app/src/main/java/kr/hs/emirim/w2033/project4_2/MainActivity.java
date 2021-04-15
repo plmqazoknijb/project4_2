@@ -27,10 +27,9 @@ public class MainActivity extends AppCompatActivity {
         linear = findViewById(R.id.linear);
         rg = findViewById(R.id.rg);
         imgv = findViewById(R.id.imgv);
-        Button btnCone = findViewById(R.id.btn_done);
 
         switchStart.setOnCheckedChangeListener(checkListner);
-        btnCone.setOnClickListener(btnListner);
+        rg.setOnCheckedChangeListener(rgListener);
 
     }
     CompoundButton.OnCheckedChangeListener checkListner = new CompoundButton.OnCheckedChangeListener() {
@@ -44,10 +43,10 @@ public class MainActivity extends AppCompatActivity {
         }
     };
 
-    View.OnClickListener btnListner = new View.OnClickListener() {
+    RadioGroup.OnCheckedChangeListener rgListener = new RadioGroup.OnCheckedChangeListener() {
         @Override
-        public void onClick(View v) {
-            switch (rg.getCheckedRadioButtonId()){
+        public void onCheckedChanged(RadioGroup group, int checkedId) {
+            switch (checkedId){
                 case R.id.radio_dog:
                     imgv.setImageResource(R.drawable.dog);
                     break;
